@@ -20,6 +20,12 @@ defmodule LmapControllerWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/v1", LmapControllerWeb do
+    pipe_through :api
+
+    get "/agents/:agent_id/required-config", RequiredConfigController, :show
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", LmapControllerWeb do
   #   pipe_through :api
