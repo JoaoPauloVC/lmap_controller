@@ -21,7 +21,7 @@ defmodule LmapControllerWeb.Router do
   end
 
   # Controller Receives and Send  JSON files to the MA
-  scope "/v1", LmapControllerWeb do
+  scope "/v1", LmapControllerWeb.V1 do
     pipe_through :api
 
     get "/agents/:agent_id/required-config", MARequiredConfigController, :show
@@ -29,7 +29,7 @@ defmodule LmapControllerWeb.Router do
   end
 
   # Controller Receives and Send  JSON files to the future Orchestrator
-  scope "/internal", LmapControllerWeb do
+  scope "/internal", LmapControllerWeb.Internal do
     pipe_through :api
 
     put "/agents/:agent_id/desired-config/", MADesiredConfigController, :update
