@@ -1,4 +1,4 @@
-defmodule LmapControllerWeb.MADesiredConfigController do
+defmodule LmapControllerWeb.Internal.MADesiredConfigController do
   use LmapControllerWeb, :controller
   alias LmapController.Agents
 
@@ -6,7 +6,8 @@ defmodule LmapControllerWeb.MADesiredConfigController do
   def update(conn, %{"agent_id" => agent_id}) do
     desired_config = conn.body_params
 
-    case Agents.set_desired_config(agent_id, desired_config) do
+    # Added desired_config on the database for the Measurement Agent (MA) with the given agent_id. If the MA doesn't exist, return 404 Not Found.
+    case Agents.update_desired_config(agent_id, desired_config) do
       {:ok, _measurement_agent} ->
         send_resp(conn, :no_content, "")
 

@@ -1,4 +1,4 @@
-defmodule LmapControllerWeb.MARequiredConfigController do
+defmodule LmapControllerWeb.V1.MARequiredConfigController do
   use LmapControllerWeb, :controller
 
   # Measurement Agent (MA) requests the desired schedule from the LMAP Controller
