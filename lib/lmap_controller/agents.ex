@@ -28,7 +28,8 @@ defmodule LmapController.Agents do
     end
   end
 
-  def set_desired_config(agent_id, desired_config) do
+  # Update the desired configuration for a Measurement Agent (MA) in the database
+  def update_desired_config(agent_id, desired_config) do
     case Repo.get_by(MeasurementAgent, agent_id: agent_id) do
       nil ->
         {:error, :agent_not_found}
