@@ -20,6 +20,7 @@ defmodule LmapControllerWeb.Router do
     get "/", PageController, :home
   end
 
+  # Controller Receives and Send  JSON files to the MA
   scope "/v1", LmapControllerWeb do
     pipe_through :api
 
@@ -27,10 +28,12 @@ defmodule LmapControllerWeb.Router do
     put "/agents/:agent_id/reported-state", MAReportedStateController, :update
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", LmapControllerWeb do
-  #   pipe_through :api
-  # end
+  # Controller Receives and Send  JSON files to the future Orchestrator
+  scope "/internal", LmapControllerWeb do
+    pipe_through :api
+
+    put "/agents/:agent_id/desired-config/", MADesiredConfigController, :update
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:lmap_controller, :dev_routes) do
