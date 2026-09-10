@@ -24,6 +24,7 @@ defmodule LmapControllerWeb.Router do
     pipe_through :api
 
     get "/agents/:agent_id/required-config", RequiredConfigController, :show
+    put "/agents/:agent_id/reported-state", ReportedStateController, :update
   end
 
   # Other scopes may use custom stacks.

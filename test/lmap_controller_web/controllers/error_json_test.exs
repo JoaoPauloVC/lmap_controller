@@ -2,7 +2,9 @@ defmodule LmapControllerWeb.ErrorJSONTest do
   use LmapControllerWeb.ConnCase, async: true
 
   test "renders 404" do
-    assert LmapControllerWeb.ErrorJSON.render("404.json", %{}) == %{errors: %{detail: "Not Found"}}
+    assert LmapControllerWeb.ErrorJSON.render("404.json", %{}) == %{
+             errors: %{detail: "Not Found"}
+           }
   end
 
   test "renders 500" do
