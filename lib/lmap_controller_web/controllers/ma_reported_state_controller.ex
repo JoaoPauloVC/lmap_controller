@@ -1,8 +1,9 @@
-defmodule LmapControllerWeb.ReportedStateController do
+defmodule LmapControllerWeb.MAReportedStateController do
   use LmapControllerWeb, :controller
-
   alias LmapController.Agents
 
+  # Measurement Agent (MA) reports its current state to the LMAP Controller
+  # The LMAP Controller stores the reported state in the database
   def update(conn, %{"agent_id" => agent_id}) do
     reported_state = conn.body_params
 

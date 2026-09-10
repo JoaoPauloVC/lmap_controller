@@ -1,6 +1,8 @@
-defmodule LmapControllerWeb.RequiredConfigController do
+defmodule LmapControllerWeb.MARequiredConfigController do
   use LmapControllerWeb, :controller
 
+  # Measurement Agent (MA) requests the desired schedule from the LMAP Controller
+  # The LMAP Controller responds with the desired schedule in JSON format
   def show(conn, %{"agent_id" => _agent_id}) do
     path =
       Application.app_dir(

@@ -2,6 +2,7 @@ defmodule LmapController.Agents do
   alias LmapController.Repo
   alias LmapController.Agents.MeasurementAgent
 
+  # Create or update the reported state of a Measurement Agent (MA) in the database
   def update_reported_state(agent_id, reported_state) do
     attrs = %{
       agent_id: agent_id,
